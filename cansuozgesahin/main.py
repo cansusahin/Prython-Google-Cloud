@@ -1,11 +1,9 @@
 import webapp2
 import os #added
-from google.appengine.ext.webapp import template #also added
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
-        path = os.path.join(os.path.dirname(__file__), '/index.html')
-        self.response.out.write(template.render(path, {}))
+        self.render('index.html', values)
 
 app = webapp2.WSGIApplication([
     ('/', MainPage),
